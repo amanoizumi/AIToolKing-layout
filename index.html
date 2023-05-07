@@ -21,6 +21,10 @@
             padding: {
               DEFAULT: '0.75rem',
             },
+            // 1296 + 24 padding = 1320
+            screens: {
+              '2xl': '1320px',
+            },
           },
           fontSize: {
             tiny: ['12px', '18px'],
@@ -116,8 +120,12 @@
               id="menuList"
               class="text-display03 fixed inset-0 top-[65px] z-10 flex hidden flex-col items-center justify-center bg-black font-bold sm:static sm:flex sm:h-20 sm:flex-row sm:gap-x-5 sm:text-base"
             >
-              <li class="sm:h-full h-fit"><a class="flex items-center py-1 h-full" href="./index.html">首頁</a></li>
-              <li class="sm:h-full h-fit"><a class="flex items-center py-1 h-full" href="./payment.html">定價</a></li>
+              <li class="sm:h-full h-fit">
+                <a class="flex items-center py-1 h-full" href="./index.html">首頁</a>
+              </li>
+              <li class="sm:h-full h-fit">
+                <a class="flex items-center py-1 h-full" href="./payment.html">定價</a>
+              </li>
             </ul>
           </nav>
         </div>
@@ -139,7 +147,7 @@
       <section class="mb-30 container sm:mb-40">
         <div class="mb-12 flex flex-col sm:mb-20 sm:flex-row sm:justify-between">
           <h2 class="sm:text-h3 text-h6 mb-6 font-bold sm:mb-0 sm:mr-6 sm:shrink-0">我們的服務</h2>
-          <p class="text-h3 sm:text-h1 w-8/12 font-bold">
+          <p class="text-h3 sm:text-h1 sm:w-8/12 font-bold">
             我們相信透過 AI 技術，<br class="sm:hidden" />
             包括圖像識別、自然語言處理和機器翻譯等，讓您更快、更準確地做出決策。
           </p>
@@ -171,7 +179,6 @@
             <img src="./images/md-Logo1.png" class="hidden min-w-[1296px] sm:block" alt="logos" />
             <img src="./images/md-Logo2.png" class="hidden min-w-[1296px] sm:block" alt="logos" />
           </div>
-      
         </div>
 
         <!-- Swiper -->
@@ -401,13 +408,13 @@
         <ul class="mb-8 flex flex-col gap-y-3 sm:mb-10 md:grid md:grid-cols-2 md:gap-8 lg:grid-cols-3">
           <!-- 1 -->
           <li class="overflow-hidden rounded-2xl border border-[#f2f2f2]">
-            <a href="#">
+            <a href="#" class="flex flex-col h-full">
               <div class="h-[312px] w-full overflow-hidden">
                 <div
                   class="h-full w-full bg-[url(./images/01.png)] bg-cover bg-center duration-200 hover:scale-125"
                 ></div>
               </div>
-              <div class="border-b border-[#f2f2f2] px-8 py-5">
+              <div class="flex-1 border-b border-[#f2f2f2] px-8 py-5">
                 <h3 class="text-h6 mb-4 font-bold">Chatbot Builder</h3>
                 <p class="text-[#525252]">建立智能化的聊天機器人，解答常見問題、提供客戶支援、收集反饋等。</p>
               </div>
@@ -423,13 +430,13 @@
           </li>
           <!-- 2 -->
           <li class="overflow-hidden rounded-2xl border border-[#f2f2f2]">
-            <a href="#">
+            <a href="#" class="flex flex-col h-full">
               <div class="h-[312px] w-full overflow-hidden">
                 <div
                   class="h-full w-full bg-[url(./images/02.png)] bg-cover bg-center duration-200 hover:scale-125"
                 ></div>
               </div>
-              <div class="border-b border-[#f2f2f2] px-8 py-5">
+              <div class="flex-1 border-b border-[#f2f2f2] px-8 py-5">
                 <h3 class="text-h6 mb-4 font-bold">Image Recognition Platform</h3>
                 <p class="text-[#525252]">專業的圖像識別平台，識別圖像、分類、標記等。</p>
               </div>
@@ -445,13 +452,13 @@
           </li>
           <!-- 3 -->
           <li class="overflow-hidden rounded-2xl border border-[#f2f2f2]">
-            <a href="#">
+            <a href="#" class="flex flex-col h-full">
               <div class="h-[312px] w-full overflow-hidden">
                 <div
                   class="h-full w-full bg-[url(./images/03.png)] bg-cover bg-center duration-200 hover:scale-125"
                 ></div>
               </div>
-              <div class="border-b border-[#f2f2f2] px-8 py-5">
+              <div class="flex-1 border-b border-[#f2f2f2] px-8 py-5">
                 <h3 class="text-h6 mb-4 font-bold">Language Translation API</h3>
                 <p class="text-[#525252]">專業的語言翻譯 API，實現文本翻譯功能，支援多種格式的文本。</p>
               </div>
@@ -467,13 +474,13 @@
           </li>
           <!-- 4 -->
           <li class="overflow-hidden rounded-2xl border border-[#f2f2f2]">
-            <a href="#">
+            <a href="#" class="flex flex-col h-full">
               <div class="h-[312px] w-full overflow-hidden">
                 <div
                   class="h-full w-full bg-[url(./images/04.png)] bg-cover bg-center duration-200 hover:scale-125"
                 ></div>
               </div>
-              <div class="border-b border-[#f2f2f2] px-8 py-5">
+              <div class="flex-1 border-b border-[#f2f2f2] px-8 py-5">
                 <h3 class="text-h6 mb-4 font-bold">Sentiment Analysis API</h3>
                 <p class="text-[#525252]">預防詐騙活動，適用於銀行、金融、電商等。</p>
               </div>
@@ -489,13 +496,13 @@
           </li>
           <!-- 5 -->
           <li class="overflow-hidden rounded-2xl border border-[#f2f2f2]">
-            <a href="#">
+            <a href="#" class="flex flex-col h-full">
               <div class="h-[312px] w-full overflow-hidden">
                 <div
                   class="h-full w-full bg-[url(./images/05.png)] bg-cover bg-center duration-200 hover:scale-125"
                 ></div>
               </div>
-              <div class="border-b border-[#f2f2f2] px-8 py-5">
+              <div class="flex-1 border-b border-[#f2f2f2] px-8 py-5">
                 <h3 class="text-h6 mb-4 font-bold">Fraud Detection Platform</h3>
                 <p class="text-[#525252]">預防詐騙活動，適用於銀行、金融、電商等。</p>
               </div>
@@ -511,13 +518,13 @@
           </li>
           <!-- 6 -->
           <li class="overflow-hidden rounded-2xl border border-[#f2f2f2]">
-            <a href="#">
+            <a href="#" class="flex flex-col h-full">
               <div class="h-[312px] w-full overflow-hidden">
                 <div
                   class="h-full w-full bg-[url(./images/06.png)] bg-cover bg-center duration-200 hover:scale-125"
                 ></div>
               </div>
-              <div class="border-b border-[#f2f2f2] px-8 py-5">
+              <div class="flex-1 border-b border-[#f2f2f2] px-8 py-5">
                 <h3 class="text-h6 mb-4 font-bold">Voice Assistant SDK</h3>
                 <p class="text-[#525252]">
                   通過語音控制應用程式、設備，實現多種功能，例如播放音樂、查詢天氣、發送信息等。
