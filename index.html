@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>首頁 - AI工具王</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          container: {
+            center: true,
+            padding: {
+              DEFAULT: '0.75rem',
+            },
+          },
+          fontSize: {
+            tiny: ['12px', '18px'],
+            sm: ['14px', '21px'],
+            base: ['16px', '24px'],
+            h6: ['20px', '24px'],
+            h5: ['24px', '29px'],
+            h4: ['28px', '34px'],
+            h3: ['32px', '38px'],
+            h2: ['40px', '48px'],
+            h1: ['48px', '58px'],
+            display02: ['36px', '54px'],
+            display03: ['80px', '96px'],
+            display02: ['120px', '144px'],
+            display01: ['160px', '192px'],
+          },
+          extend: {
+            colors: {
+              primary: '#F18724',
+              surface: '#F2EFE7',
+            },
+            spacing: {
+              25: '6.25rem',
+              30: '7.5rem',
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      /* tailwindcss */
+      @layer base {
+        html {
+          background: #000000;
+          line-height: 1.5;
+          color: #fff;
+          font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft JhengHei',
+            Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+      }
+      @layer components {
+        .btn {
+          @apply text-h6 block rounded-2xl border px-10 py-5 font-bold leading-none;
+        }
+        .input {
+          @apply w-full border-transparent bg-transparent p-0 focus:border-transparent focus:ring focus:ring-transparent;
+        }
+      }
+
+      /* swiper css */
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        color: #000;
+        opacity: 1;
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .swiper-pagination-bullet-active {
+        color: #fff;
+        background: #fff;
+        width: 12px;
+        height: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header -->
+    <header class="fixed z-20 w-full">
+      <div class="container bg-black">
+        <div class="flex w-full justify-between border-b border-white py-5">
+          <a href="./index.html" class="flex items-center">
+            <img src="./images/logo-icon.png" class="mr-2 h-6 sm:h-10" alt="logo-icon" />
+            <h1
+              class="block h-6 w-[189px] overflow-hidden whitespace-nowrap bg-[url('../images/logo.png')] bg-contain bg-no-repeat indent-[110%] sm:h-10"
+            >
+              AI工具王
+            </h1>
+          </a>
+          <nav>
+            <a href="#" id="toggleBtn" class="sm:hidden">
+              <img src="./icons/Menu.png" id="menuIcon" class="mr-2 h-6" alt="logo-icon" />
+            </a>
+            <ul
+              id="menuList"
+              class="text-display03 fixed inset-0 top-[65px] z-10 flex hidden flex-col items-center justify-center bg-black font-bold sm:static sm:flex sm:h-20 sm:flex-row sm:gap-x-5 sm:text-base"
+            >
+              <li><a class="block py-1" href="./index.html">首頁</a></li>
+              <li><a class="block py-1" href="./payment.html">定價</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- header -->
+    <main>
+      <section class="mb-30 sm:pt-30 container pt-[65px] sm:mb-40">
+        <p class="sm:text-display02 text-h1 mb-10 mt-10 w-3/4 font-bold sm:w-full">
+          透過<br />AI工具王的<br />強大模型<br />讓您的業務更聰明
+        </p>
+        <button type="button" class="btn sm:mb-25 mb-[180px]">開始使用</button>
+        <div class="flex justify-end overflow-y-hidden">
+          <img src="./icons/3.png" id="box1" class="h-[117px] sm:h-[180px]" alt="icon" />
+          <img src="./icons/3.png" id="box2" class="h-[117px] sm:h-[180px]" alt="icon" />
+          <img src="./icons/3.png" id="box3" class="h-[117px] sm:h-[180px]" alt="icon" />
+        </div>
+      </section>
+      <section class="mb-30 container sm:mb-40">
+        <div class="mb-12 flex flex-col sm:mb-20 sm:flex-row sm:justify-between">
+          <h2 class="sm:text-h3 text-h6 mb-6 font-bold sm:mb-0 sm:mr-6 sm:shrink-0">我們的服務</h2>
+          <p class="text-h3 sm:text-h1 w-8/12 font-bold">
+            我們相信透過 AI 技術，<br class="sm:hidden" />
+            包括圖像識別、自然語言處理和機器翻譯等，讓您更快、更準確地做出決策。
+          </p>
+        </div>
+        <ul class="flex flex-col gap-4 sm:gap-6 md:flex-row">
+          <li class="flex-1 rounded-2xl border border-[#919191] px-5 py-10 sm:px-10 sm:py-20">
+            <img src="./icons/Flash on.png" class="mb-5 h-20 w-20" alt="icon" />
+            <h3 class="text-h3 mb-5 font-bold">快速</h3>
+            <p>我們先進的推理基礎設施提供了極短的響應時間，讓你的產品服務不間斷。</p>
+          </li>
+          <li class="flex-1 rounded-2xl border border-[#919191] px-5 py-10 sm:px-10 sm:py-20">
+            <img src="./icons/Auto awesome.png" class="mb-5 h-20 w-20" alt="icon" />
+            <h3 class="text-h3 mb-5 font-bold">靈活</h3>
+            <p>我們的服務可以根據您的需求進行靈活調整，同時還可以滿足不同項目和預算的需求。</p>
+          </li>
+          <li class="flex-1 rounded-2xl border border-[#919191] px-5 py-10 sm:px-10 sm:py-20">
+            <img src="./icons/Library add.png" class="mb-5 h-20 w-20" alt="icon" />
+            <h3 class="text-h3 mb-5 font-bold">擴充</h3>
+            <p>我們的服務支持多種擴充選項，可以滿足您的不斷增長的 AI 需求。</p>
+          </li>
+        </ul>
+      </section>
+      <section class="mb-30 container sm:mb-40">
+        <h2 class="sm:text-h3 text-h6 mb-6 font-bold sm:mb-20">來自合作夥伴</h2>
+        <div class="mb-12 overflow-x-auto py-3">
+          <img src="./images/sm-Logo1.png" class="mx-auto sm:hidden" alt="logos" />
+          <img src="./images/sm-Logo2.png" class="mx-auto sm:hidden" alt="logos" />
+          <img src="./images/md-Logo1.png" class="hidden min-w-[1296px] sm:block" alt="logos" />
+          <img src="./images/md-Logo2.png" class="hidden min-w-[1296px] sm:block" alt="logos" />
+        </div>
+
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+          <ul class="swiper-wrapper mb-5 h-[400px]">
+            <li class="swiper-slide h-full">
+              <div class="flex h-full flex-col rounded-2xl bg-white bg-opacity-[.08] p-5 text-white sm:p-10">
+                <ul class="mb-5 flex">
+                  <li>
+                    <img src="./icons/Star.png" alt="icon" />
+                  </li>
+                  <li>
+                    <img src="./icons/Star.png" alt="icon" />
+                  </li>
+                  <li>
+                    <img src="./icons/Star.png" alt="icon" />
+                  </li>
+                  <li>
+                    <img src="./icons/Star.png" alt="icon" />
+                  </li>
+                  <li>
+                    <img src="./icons/Star.png" alt="icon" />
+                  </li>
+                </ul>
+                <p class="mb-4">
+                  非常喜歡 AI工具王 提供的 AI
+                  模型租賃服務，使用起來非常方便，而且效果非常好。對於我們公司的業務來說，這個服務非常重要，因為我們需要大量的數據進行分析和預測，AI工具王
+                  提供的 AI 模型能夠幫助我們節省大量時間和成本，實在是太棒了！
+                </p>
+                <div class="mt-auto flex items-center">
+                  <img src="./images/avatar1.png" class="mr-4" alt="avatar" />
+                  <div>
+                    <p class="font-bold">陳小姐</p>
+                    <p class="text-sm">ABC科技有限公司</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="swiper-slide h-full">
+              <div class="flex h-full flex-col rounded-2xl bg-white bg-opacity-[.08] p-5 text-white sm:p-10">
+                <ul class="mb-5 flex">
+                  <li>
+                    <img src="./icons/Star.png" alt="icon" />
+                  </li>
+                  <li>
+                    <img src="./icons/Star.png" alt="icon" />
+                  </li>
+                  <li>
+                    <img src="./icons/Star.png" alt="icon" />
+                  </li>
+                  <li>
+                    <img src="./icons/Star.png" alt="icon" />
+                  </li>
+                  <li>
+                    <img src="./icons/Star.png" alt="icon" />
+                  </li>
+                </ul>
+                <p class="mb-4">
+                  作為一家醫療器材公司，我們非常關注人工智能技術的應用，而 AI工具王 提供的 AI
+                  模型租賃服務為我們帶來了很大的幫助。我們使用 AI工具王
+                  的模型進行醫學影像分析和預測，這些模型非常精確，能夠幫助我們更好地診斷病情，提高治療效果。感謝
+                  AI工具王 團隊的辛勤工作！
+                </p>
+                <div class="mt-auto flex items-center">
+                  <img src="./images/avatar2.png" class="mr-4" alt="avatar" />
+                  <div>
+                    <p class="font-bold">劉小姐</p>
+                    <p class="text-sm">XYZ 醫療器材有限公司</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="swiper-slide h-full">
+              <div class="flex h-full flex-col rounded-2xl bg-white bg-opacity-[.08] p-5 text-white sm:p-10">
+                <ul class="mb-5 flex">
+                  <li>
+                    <img src="./icons/Star.png" alt="icon" />
+                  </li>
+                  <li>
+                    <img src="./icons/Star.png" alt="icon" />
+                  </li>
+                  <li>
+                    <img src="./icons/Star.png" alt="icon" />
+                  </li>
+                  <li>
+                    <img src="./icons/Star.png" alt="icon" />
+                  </li>
+                  <li>
+                    <img src="./icons/Star.png" alt="icon" />
+                  </li>
+                </ul>
+                <p class="mb-4">
+                  我們銀行一直在尋找能夠幫助我們提高風險控制和客戶服務的解決方案，而 AI工具王 提供的 AI
+                  模型租賃服務正好滿足了我們的需求。我們使用 AI工具王
+                  的模型進行客戶信用評估和詐騙檢測等任務，這些模型非常準確，能夠幫助我們更好地控制風險，提高客戶滿意度。非常感謝
+                  AI工具王 團隊的支持！
+                </p>
+                <div class="mt-auto flex items-center">
+                  <img src="./images/avatar3.png" class="mr-4" alt="avatar" />
+                  <div>
+                    <p class="font-bold">黃先生</p>
+                    <p class="text-sm">EFG 銀行</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="swiper-pagination static flex items-center justify-center"></div>
+        </div>
+      </section>
+      <section class="container rounded-[20px] bg-white py-20 text-black sm:py-40">
+        <h2 class="sm:text-display03 text-h3 mb-8 text-center font-bold sm:mb-20">
+          這些超酷的應用，<br class="sm:hidden" />
+          都來自 AI工具王
+        </h2>
+        <label for="searchInput" class="mb-4 flex items-center rounded-2xl bg-[#f2f2f2] px-10 py-5 sm:mb-8">
+          <img src="./icons/Search.png" alt="icon" />
+          <input type="text" class="input" id="searchInput" placeholder="輸入關鍵字搜尋" />
+        </label>
+        <div class="relative">
+          <div class="flex flex-wrap justify-between">
+            <div class="relative order-1 w-1/2 lg:w-1/4">
+              <button
+                type="button"
+                id="filterDropdownBtn"
+                class="flex items-center rounded-2xl border border-[#00000010] bg-white px-10 py-5"
+              >
+                <p class="mr-[15px]">篩選</p>
+                <img src="./icons/Vector.png" alt="icon" />
+              </button>
+            </div>
+            <!-- Tab -->
+            <div class="order-3 mb-12 mt-4 w-full overflow-x-auto py-2 lg:order-2 lg:w-1/2">
+              <ul class="mx-auto flex w-fit text-[#919191]">
+                <li class="shrink-0">
+                  <button class="rounded-2xl bg-[#f2f2f2] px-4 py-2 font-bold text-black" type="button">
+                    全部
+                  </button>
+                </li>
+                <li class="shrink-0"><button class="px-4 py-2" type="button">聊天</button></li>
+                <li class="shrink-0"><button class="px-4 py-2" type="button">影像辨識</button></li>
+                <li class="shrink-0"><button class="px-4 py-2" type="button">翻譯</button></li>
+                <li class="shrink-0"><button class="px-4 py-2" type="button">行銷</button></li>
+                <li class="shrink-0"><button class="px-4 py-2" type="button">客服</button></li>
+                <li class="shrink-0"><button class="px-4 py-2" type="button">生產力</button></li>
+              </ul>
+            </div>
+            <div class="relative order-2 w-1/2 lg:order-3 lg:w-1/4">
+              <button
+                type="button"
+                id="sortDropdownBtn"
+                class="ml-auto flex items-center rounded-2xl border border-[#00000010] bg-white px-10 py-5"
+              >
+                <p class="mr-[15px]">由新到舊</p>
+                <img src="./icons/SortArrow.png" alt="icon" />
+              </button>
+            </div>
+          </div>
+          <!-- 篩選的下拉選單 -->
+          <div
+            id="filterDropdown"
+            class="absolute inset-x-0 top-[68px] z-10 hidden rounded-2xl border border-[#00000010] bg-white drop-shadow-xl"
+          >
+            <p class="text-tiny mb-2 ml-10 mt-5 text-[#919191]">AI 模型</p>
+            <ul class="flex flex-col border-b pb-4">
+              <li class="flex items-center">
+                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">所有模型</button>
+              </li>
+              <li class="flex items-center">
+                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">卡卡</button>
+              </li>
+              <li class="flex items-center">
+                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">杰杰</button>
+              </li>
+              <li class="flex items-center">
+                <button
+                  type="button"
+                  class="flex flex-1 items-center justify-between px-10 py-2 text-left hover:bg-[#f2f2f2]"
+                >
+                  琪琪 <img src="./icons/Checked.png" alt="logo" />
+                </button>
+              </li>
+              <li class="flex items-center">
+                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">昊昊</button>
+              </li>
+            </ul>
+            <p class="text-tiny mb-2 ml-10 mt-5 text-[#919191]">AI 模型</p>
+            <ul class="flex flex-col border-b pb-4">
+              <li class="flex items-center">
+                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">所有模型</button>
+              </li>
+              <li class="flex items-center">
+                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">卡卡</button>
+              </li>
+              <li class="flex items-center">
+                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">杰杰</button>
+              </li>
+              <li class="flex items-center">
+                <button
+                  type="button"
+                  class="flex flex-1 items-center justify-between px-10 py-2 text-left hover:bg-[#f2f2f2]"
+                >
+                  琪琪 <img src="./icons/Checked.png" alt="logo" />
+                </button>
+              </li>
+              <li class="flex items-center">
+                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">昊昊</button>
+              </li>
+            </ul>
+          </div>
+          <!-- 由舊到新由新到舊的下拉選單 -->
+          <div
+            id="sortDropdown"
+            class="absolute inset-x-0 top-[68px] z-10 hidden rounded-2xl border border-[#00000010] bg-white drop-shadow-xl"
+          >
+            <ul class="flex flex-col py-5">
+              <li class="flex items-center">
+                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">由新到舊</button>
+              </li>
+              <li class="flex items-center">
+                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">由舊到新</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 卡片列表 -->
+        <ul class="mb-8 flex flex-col gap-y-3 sm:mb-10 md:grid md:grid-cols-2 md:gap-8 lg:grid-cols-3">
+          <!-- 1 -->
+          <li class="overflow-hidden rounded-2xl border border-[#f2f2f2]">
+            <a href="#">
+              <div class="h-[312px] w-full overflow-hidden">
+                <div
+                  class="h-full w-full bg-[url(./images/01.png)] bg-cover bg-center duration-200 hover:scale-125"
+                ></div>
+              </div>
+              <div class="border-b border-[#f2f2f2] px-8 py-5">
+                <h3 class="text-h6 mb-4 font-bold">Chatbot Builder</h3>
+                <p class="text-[#525252]">建立智能化的聊天機器人，解答常見問題、提供客戶支援、收集反饋等。</p>
+              </div>
+              <div class="flex justify-between border-b border-[#f2f2f2] px-8 py-5">
+                <p class="font-bold">AI 模型</p>
+                <p>卡卡</p>
+              </div>
+              <div class="flex items-center justify-between px-8 py-5">
+                <p>#聊天</p>
+                <img src="./icons/Share.png" alt="icon" />
+              </div>
+            </a>
+          </li>
+          <!-- 2 -->
+          <li class="overflow-hidden rounded-2xl border border-[#f2f2f2]">
+            <a href="#">
+              <div class="h-[312px] w-full overflow-hidden">
+                <div
+                  class="h-full w-full bg-[url(./images/02.png)] bg-cover bg-center duration-200 hover:scale-125"
+                ></div>
+              </div>
+              <div class="border-b border-[#f2f2f2] px-8 py-5">
+                <h3 class="text-h6 mb-4 font-bold">Image Recognition Platform</h3>
+                <p class="text-[#525252]">專業的圖像識別平台，識別圖像、分類、標記等。</p>
+              </div>
+              <div class="flex justify-between border-b border-[#f2f2f2] px-8 py-5">
+                <p class="font-bold">AI 模型</p>
+                <p>杰杰</p>
+              </div>
+              <div class="flex items-center justify-between px-8 py-5">
+                <p>#影像辨識</p>
+                <img src="./icons/Share.png" alt="icon" />
+              </div>
+            </a>
+          </li>
+          <!-- 3 -->
+          <li class="overflow-hidden rounded-2xl border border-[#f2f2f2]">
+            <a href="#">
+              <div class="h-[312px] w-full overflow-hidden">
+                <div
+                  class="h-full w-full bg-[url(./images/03.png)] bg-cover bg-center duration-200 hover:scale-125"
+                ></div>
+              </div>
+              <div class="border-b border-[#f2f2f2] px-8 py-5">
+                <h3 class="text-h6 mb-4 font-bold">Language Translation API</h3>
+                <p class="text-[#525252]">專業的語言翻譯 API，實現文本翻譯功能，支援多種格式的文本。</p>
+              </div>
+              <div class="flex justify-between border-b border-[#f2f2f2] px-8 py-5">
+                <p class="font-bold">AI 模型</p>
+                <p>琪琪</p>
+              </div>
+              <div class="flex items-center justify-between px-8 py-5">
+                <p>#翻譯</p>
+                <img src="./icons/Share.png" alt="icon" />
+              </div>
+            </a>
+          </li>
+          <!-- 4 -->
+          <li class="overflow-hidden rounded-2xl border border-[#f2f2f2]">
+            <a href="#">
+              <div class="h-[312px] w-full overflow-hidden">
+                <div
+                  class="h-full w-full bg-[url(./images/04.png)] bg-cover bg-center duration-200 hover:scale-125"
+                ></div>
+              </div>
+              <div class="border-b border-[#f2f2f2] px-8 py-5">
+                <h3 class="text-h6 mb-4 font-bold">Sentiment Analysis API</h3>
+                <p class="text-[#525252]">預防詐騙活動，適用於銀行、金融、電商等。</p>
+              </div>
+              <div class="flex justify-between border-b border-[#f2f2f2] px-8 py-5">
+                <p class="font-bold">AI 模型</p>
+                <p>昊昊</p>
+              </div>
+              <div class="flex items-center justify-between px-8 py-5">
+                <p>#行銷</p>
+                <img src="./icons/Share.png" alt="icon" />
+              </div>
+            </a>
+          </li>
+          <!-- 5 -->
+          <li class="overflow-hidden rounded-2xl border border-[#f2f2f2]">
+            <a href="#">
+              <div class="h-[312px] w-full overflow-hidden">
+                <div
+                  class="h-full w-full bg-[url(./images/05.png)] bg-cover bg-center duration-200 hover:scale-125"
+                ></div>
+              </div>
+              <div class="border-b border-[#f2f2f2] px-8 py-5">
+                <h3 class="text-h6 mb-4 font-bold">Fraud Detection Platform</h3>
+                <p class="text-[#525252]">預防詐騙活動，適用於銀行、金融、電商等。</p>
+              </div>
+              <div class="flex justify-between border-b border-[#f2f2f2] px-8 py-5">
+                <p class="font-bold">AI 模型</p>
+                <p>卡卡</p>
+              </div>
+              <div class="flex items-center justify-between px-8 py-5">
+                <p>#客服</p>
+                <img src="./icons/Share.png" alt="icon" />
+              </div>
+            </a>
+          </li>
+          <!-- 6 -->
+          <li class="overflow-hidden rounded-2xl border border-[#f2f2f2]">
+            <a href="#">
+              <div class="h-[312px] w-full overflow-hidden">
+                <div
+                  class="h-full w-full bg-[url(./images/06.png)] bg-cover bg-center duration-200 hover:scale-125"
+                ></div>
+              </div>
+              <div class="border-b border-[#f2f2f2] px-8 py-5">
+                <h3 class="text-h6 mb-4 font-bold">Voice Assistant SDK</h3>
+                <p class="text-[#525252]">
+                  通過語音控制應用程式、設備，實現多種功能，例如播放音樂、查詢天氣、發送信息等。
+                </p>
+              </div>
+              <div class="flex justify-between border-b border-[#f2f2f2] px-8 py-5">
+                <p class="font-bold">AI 模型</p>
+                <p>杰杰</p>
+              </div>
+              <div class="flex items-center justify-between px-8 py-5">
+                <p>#生產力</p>
+                <img src="./icons/Share.png" alt="icon" />
+              </div>
+            </a>
+          </li>
+        </ul>
+        <!-- pagination -->
+        <div class="flex justify-end">
+          <ul class="flex gap-x-1">
+            <li>
+              <button class="h-12 min-w-[48px] rounded-2xl bg-black text-white hover:bg-black" type="button">
+                1
+              </button>
+            </li>
+            <li>
+              <button class="h-12 min-w-[48px] rounded-2xl hover:bg-black hover:text-white" type="button">
+                2
+              </button>
+            </li>
+            <li>
+              <button class="h-12 min-w-[48px] rounded-2xl hover:bg-black hover:text-white" type="button">
+                3
+              </button>
+            </li>
+            <li>
+              <button class="h-12 min-w-[48px] rounded-2xl hover:bg-black hover:text-white" type="button">
+                4
+              </button>
+            </li>
+            <li>
+              <button class="h-12 min-w-[48px] rounded-2xl hover:bg-black hover:text-white" type="button">
+                5
+              </button>
+            </li>
+            <li class="ml-1">
+              <button type="button" class="flex h-12 min-w-[48px] items-center justify-center rounded-2xl">
+                <img src="./icons/Keyboard arrow right.png" alt="icon" />
+              </button>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="container">
+        <div class="border-b border-white py-40">
+          <h2 class="sm:text-h1 text-h3 mb-8 text-center font-bold sm:mb-10">
+            現在就來建立<br class="sm:hidden" />屬於你的服務吧
+          </h2>
+          <div class="flex justify-center">
+            <button type="button" class="btn flex">
+              開始使用
+              <img src="./icons/Call made.png" class="ml-4" alt="icon" />
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="container">
+        <div
+          class="flex flex-col border-b border-white py-20 sm:flex-row sm:flex-row-reverse sm:items-start sm:justify-between"
+        >
+          <a href="index.html" class="mb-10 flex items-center sm:mb-0">
+            <img src="./images/logo-icon.png" class="mr-2 h-10" alt="logo-icon" />
+            <h3
+              class="block h-10 w-[189px] overflow-hidden whitespace-nowrap bg-[url('../images/logo.png')] bg-contain bg-no-repeat indent-[110%]"
+            >
+              AI工具王
+            </h3>
+          </a>
+          <div class="flex flex-col gap-y-2">
+            <a href="./index.html" class="sm:text-display03 text-h1 font-bold">首頁</a>
+            <a href="./payment.html" class="sm:text-display03 text-h1 font-bold">定價</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="py-8 font-bold">
+      <div class="container">
+        <div class="flex flex-wrap">
+          <p class="order-1 w-1/2 sm:mr-10 sm:w-1/6 md:mr-20">AI工具王 © 2023</p>
+          <div class="order-2 w-1/2 sm:order-3 sm:w-fit">
+            <button id="toTopBtn" type="button" class="ml-auto flex items-center">
+              Back to top
+              <img src="./icons/Arrow upward.png" class="ml-4" alt="icon" />
+            </button>
+          </div>
+          <ul class="order-3 mt-9 flex gap-x-5 sm:order-2 sm:mr-auto sm:mt-0 sm:w-fit">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/grassAnumation.js"></script>
+  </body>
+</html>
