@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700:900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -101,8 +101,8 @@
   </head>
   <body>
     <!-- header -->
-    <header class="fixed z-20 w-full">
-      <div class="container bg-black">
+    <header class="fixed z-20 w-full bg-black">
+      <div class="container">
         <div class="flex w-full justify-between border-b border-white py-5">
           <a href="./index.html" class="flex items-center">
             <img src="./images/logo-icon.png" class="mr-2 h-6 sm:h-10" alt="logo-icon" />
@@ -289,133 +289,141 @@
           <div class="swiper-pagination static flex items-center justify-center"></div>
         </div>
       </section>
-      <section class="container rounded-[20px] bg-white py-20 text-black sm:py-40">
-        <h2 class="sm:text-display03 text-h3 mb-8 text-center font-bold sm:mb-20">
-          這些超酷的應用，<br class="sm:hidden" />
-          都來自 AI工具王
-        </h2>
-        <label for="searchInput" class="mb-4 flex items-center rounded-2xl bg-[#f2f2f2] px-10 py-5 sm:mb-8">
-          <img src="./icons/Search.png" alt="icon" />
-          <input type="text" class="input" id="searchInput" placeholder="輸入關鍵字搜尋" />
-        </label>
-        <div class="relative">
-          <div class="flex flex-wrap justify-between">
-            <div class="relative order-1 w-1/2 lg:w-1/4">
-              <button
-                type="button"
-                id="filterDropdownBtn"
-                class="flex items-center rounded-2xl border border-[#00000010] bg-white px-10 py-5"
-              >
-                <p class="mr-[15px]">篩選</p>
-                <img src="./icons/Vector.png" alt="icon" />
-              </button>
+      <section class="rounded-[20px] bg-white py-20 text-black sm:py-40">
+        <div class="container">
+          <h2 class="sm:text-display03 text-h3 mb-8 text-center font-bold sm:mb-20">
+            這些超酷的應用，<br class="sm:hidden" />
+            都來自 AI工具王
+          </h2>
+          <label for="searchInput" class="mb-4 flex items-center rounded-2xl bg-[#f2f2f2] px-10 py-5 sm:mb-8">
+            <img src="./icons/Search.png" alt="icon" />
+            <input type="text" class="input" id="searchInput" placeholder="輸入關鍵字搜尋" />
+          </label>
+          <div class="relative">
+            <div class="flex flex-wrap justify-between">
+              <div class="relative order-1 w-1/2 lg:w-1/4">
+                <button
+                  type="button"
+                  id="filterDropdownBtn"
+                  class="flex items-center rounded-2xl border border-[#00000010] bg-white px-10 py-5"
+                >
+                  <p class="mr-[15px]">篩選</p>
+                  <img src="./icons/Vector.png" alt="icon" />
+                </button>
+              </div>
+              <!-- Tab -->
+              <div class="order-3 mb-12 mt-4 w-full overflow-x-auto py-2 lg:order-2 lg:w-1/2">
+                <ul class="mx-auto flex w-fit text-[#919191]">
+                  <li class="shrink-0">
+                    <button class="rounded-2xl bg-[#f2f2f2] px-4 py-2 font-bold text-black" type="button">
+                      全部
+                    </button>
+                  </li>
+                  <li class="shrink-0"><button class="px-4 py-2" type="button">聊天</button></li>
+                  <li class="shrink-0"><button class="px-4 py-2" type="button">影像辨識</button></li>
+                  <li class="shrink-0"><button class="px-4 py-2" type="button">翻譯</button></li>
+                  <li class="shrink-0"><button class="px-4 py-2" type="button">行銷</button></li>
+                  <li class="shrink-0"><button class="px-4 py-2" type="button">客服</button></li>
+                  <li class="shrink-0"><button class="px-4 py-2" type="button">生產力</button></li>
+                </ul>
+              </div>
+              <div class="relative order-2 w-1/2 lg:order-3 lg:w-1/4">
+                <button
+                  type="button"
+                  id="sortDropdownBtn"
+                  class="ml-auto flex items-center rounded-2xl border border-[#00000010] bg-white px-10 py-5"
+                >
+                  <p class="mr-[15px]">由新到舊</p>
+                  <img src="./icons/SortArrow.png" alt="icon" />
+                </button>
+              </div>
             </div>
-            <!-- Tab -->
-            <div class="order-3 mb-12 mt-4 w-full overflow-x-auto py-2 lg:order-2 lg:w-1/2">
-              <ul class="mx-auto flex w-fit text-[#919191]">
-                <li class="shrink-0">
-                  <button class="rounded-2xl bg-[#f2f2f2] px-4 py-2 font-bold text-black" type="button">
-                    全部
+            <!-- 篩選的下拉選單 -->
+            <div
+              id="filterDropdown"
+              class="absolute inset-x-0 top-[68px] z-10 hidden rounded-2xl border border-[#00000010] bg-white drop-shadow-xl"
+            >
+              <p class="text-tiny mb-2 ml-10 mt-5 text-[#919191]">AI 模型</p>
+              <ul class="flex flex-col border-b pb-4">
+                <li class="flex items-center">
+                  <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">
+                    所有模型
                   </button>
                 </li>
-                <li class="shrink-0"><button class="px-4 py-2" type="button">聊天</button></li>
-                <li class="shrink-0"><button class="px-4 py-2" type="button">影像辨識</button></li>
-                <li class="shrink-0"><button class="px-4 py-2" type="button">翻譯</button></li>
-                <li class="shrink-0"><button class="px-4 py-2" type="button">行銷</button></li>
-                <li class="shrink-0"><button class="px-4 py-2" type="button">客服</button></li>
-                <li class="shrink-0"><button class="px-4 py-2" type="button">生產力</button></li>
+                <li class="flex items-center">
+                  <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">卡卡</button>
+                </li>
+                <li class="flex items-center">
+                  <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">杰杰</button>
+                </li>
+                <li class="flex items-center">
+                  <button
+                    type="button"
+                    class="flex flex-1 items-center justify-between px-10 py-2 text-left hover:bg-[#f2f2f2]"
+                  >
+                    琪琪 <img src="./icons/Checked.png" alt="logo" />
+                  </button>
+                </li>
+                <li class="flex items-center">
+                  <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">昊昊</button>
+                </li>
+              </ul>
+              <p class="text-tiny mb-2 ml-10 mt-5 text-[#919191]">AI 模型</p>
+              <ul class="flex flex-col border-b pb-4">
+                <li class="flex items-center">
+                  <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">
+                    所有模型
+                  </button>
+                </li>
+                <li class="flex items-center">
+                  <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">卡卡</button>
+                </li>
+                <li class="flex items-center">
+                  <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">杰杰</button>
+                </li>
+                <li class="flex items-center">
+                  <button
+                    type="button"
+                    class="flex flex-1 items-center justify-between px-10 py-2 text-left hover:bg-[#f2f2f2]"
+                  >
+                    琪琪 <img src="./icons/Checked.png" alt="logo" />
+                  </button>
+                </li>
+                <li class="flex items-center">
+                  <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">昊昊</button>
+                </li>
               </ul>
             </div>
-            <div class="relative order-2 w-1/2 lg:order-3 lg:w-1/4">
-              <button
-                type="button"
-                id="sortDropdownBtn"
-                class="ml-auto flex items-center rounded-2xl border border-[#00000010] bg-white px-10 py-5"
-              >
-                <p class="mr-[15px]">由新到舊</p>
-                <img src="./icons/SortArrow.png" alt="icon" />
-              </button>
+            <!-- 由舊到新由新到舊的下拉選單 -->
+            <div
+              id="sortDropdown"
+              class="absolute inset-x-0 top-[68px] z-10 hidden rounded-2xl border border-[#00000010] bg-white drop-shadow-xl"
+            >
+              <ul class="flex flex-col py-5">
+                <li class="flex items-center">
+                  <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">
+                    由新到舊
+                  </button>
+                </li>
+                <li class="flex items-center">
+                  <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">
+                    由舊到新
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
-          <!-- 篩選的下拉選單 -->
-          <div
-            id="filterDropdown"
-            class="absolute inset-x-0 top-[68px] z-10 hidden rounded-2xl border border-[#00000010] bg-white drop-shadow-xl"
-          >
-            <p class="text-tiny mb-2 ml-10 mt-5 text-[#919191]">AI 模型</p>
-            <ul class="flex flex-col border-b pb-4">
-              <li class="flex items-center">
-                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">所有模型</button>
-              </li>
-              <li class="flex items-center">
-                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">卡卡</button>
-              </li>
-              <li class="flex items-center">
-                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">杰杰</button>
-              </li>
-              <li class="flex items-center">
-                <button
-                  type="button"
-                  class="flex flex-1 items-center justify-between px-10 py-2 text-left hover:bg-[#f2f2f2]"
-                >
-                  琪琪 <img src="./icons/Checked.png" alt="logo" />
-                </button>
-              </li>
-              <li class="flex items-center">
-                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">昊昊</button>
-              </li>
-            </ul>
-            <p class="text-tiny mb-2 ml-10 mt-5 text-[#919191]">AI 模型</p>
-            <ul class="flex flex-col border-b pb-4">
-              <li class="flex items-center">
-                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">所有模型</button>
-              </li>
-              <li class="flex items-center">
-                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">卡卡</button>
-              </li>
-              <li class="flex items-center">
-                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">杰杰</button>
-              </li>
-              <li class="flex items-center">
-                <button
-                  type="button"
-                  class="flex flex-1 items-center justify-between px-10 py-2 text-left hover:bg-[#f2f2f2]"
-                >
-                  琪琪 <img src="./icons/Checked.png" alt="logo" />
-                </button>
-              </li>
-              <li class="flex items-center">
-                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">昊昊</button>
-              </li>
-            </ul>
-          </div>
-          <!-- 由舊到新由新到舊的下拉選單 -->
-          <div
-            id="sortDropdown"
-            class="absolute inset-x-0 top-[68px] z-10 hidden rounded-2xl border border-[#00000010] bg-white drop-shadow-xl"
-          >
-            <ul class="flex flex-col py-5">
-              <li class="flex items-center">
-                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">由新到舊</button>
-              </li>
-              <li class="flex items-center">
-                <button type="button" class="flex-1 px-10 py-2 text-left hover:bg-[#f2f2f2]">由舊到新</button>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <!-- 卡片列表 -->
-        <ul class="mb-8 flex flex-col gap-y-3 sm:mb-10 md:grid md:grid-cols-2 md:gap-8 lg:grid-cols-3">
-          <!-- 1 -->
-          <li class="overflow-hidden rounded-2xl border border-[#f2f2f2]">
-            <div class="flex flex-col h-full">
+          <!-- 卡片列表 -->
+          <ul class="mb-8 flex flex-col gap-y-3 sm:mb-10 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
+            <!-- 1 -->
+            <li class="overflow-hidden rounded-2xl border border-[#f2f2f2] flex flex-col h-full">
               <div class="h-[312px] w-full overflow-hidden">
                 <div
                   class="h-full w-full bg-[url(./images/01.png)] bg-cover bg-center duration-200 hover:scale-125"
                 ></div>
               </div>
               <div class="flex-1 border-b border-[#f2f2f2] px-8 py-5">
-                <h3 class="text-h6 mb-4 font-bold">Chatbot Builder</h3>
+                <h3 class="text-h6 mb-4 font-black">Chatbot Builder</h3>
                 <p class="text-[#525252]">建立智能化的聊天機器人，解答常見問題、提供客戶支援、收集反饋等。</p>
               </div>
               <div class="flex justify-between border-b border-[#f2f2f2] px-8 py-5">
@@ -428,18 +436,16 @@
                   <img src="./icons/Share.png" alt="icon" />
                 </button>
               </div>
-            </div>
-          </li>
-          <!-- 2 -->
-          <li class="overflow-hidden rounded-2xl border border-[#f2f2f2]">
-            <div class="flex flex-col h-full">
+            </li>
+            <!-- 2 -->
+            <li class="overflow-hidden rounded-2xl border border-[#f2f2f2] flex flex-col h-full">
               <div class="h-[312px] w-full overflow-hidden">
                 <div
                   class="h-full w-full bg-[url(./images/02.png)] bg-cover bg-center duration-200 hover:scale-125"
                 ></div>
               </div>
               <div class="flex-1 border-b border-[#f2f2f2] px-8 py-5">
-                <h3 class="text-h6 mb-4 font-bold">Image Recognition Platform</h3>
+                <h3 class="text-h6 mb-4 font-black">Image Recognition Platform</h3>
                 <p class="text-[#525252]">專業的圖像識別平台，識別圖像、分類、標記等。</p>
               </div>
               <div class="flex justify-between border-b border-[#f2f2f2] px-8 py-5">
@@ -452,18 +458,16 @@
                   <img src="./icons/Share.png" alt="icon" />
                 </button>
               </div>
-            </div>
-          </li>
-          <!-- 3 -->
-          <li class="overflow-hidden rounded-2xl border border-[#f2f2f2]">
-            <div class="flex flex-col h-full">
+            </li>
+            <!-- 3 -->
+            <li class="overflow-hidden rounded-2xl border border-[#f2f2f2] flex flex-col h-full">
               <div class="h-[312px] w-full overflow-hidden">
                 <div
                   class="h-full w-full bg-[url(./images/03.png)] bg-cover bg-center duration-200 hover:scale-125"
                 ></div>
               </div>
               <div class="flex-1 border-b border-[#f2f2f2] px-8 py-5">
-                <h3 class="text-h6 mb-4 font-bold">Language Translation API</h3>
+                <h3 class="text-h6 mb-4 font-black">Language Translation API</h3>
                 <p class="text-[#525252]">專業的語言翻譯 API，實現文本翻譯功能，支援多種格式的文本。</p>
               </div>
               <div class="flex justify-between border-b border-[#f2f2f2] px-8 py-5">
@@ -476,18 +480,16 @@
                   <img src="./icons/Share.png" alt="icon" />
                 </button>
               </div>
-            </div>
-          </li>
-          <!-- 4 -->
-          <li class="overflow-hidden rounded-2xl border border-[#f2f2f2]">
-            <div class="flex flex-col h-full">
+            </li>
+            <!-- 4 -->
+            <li class="overflow-hidden rounded-2xl border border-[#f2f2f2] flex flex-col h-full">
               <div class="h-[312px] w-full overflow-hidden">
                 <div
                   class="h-full w-full bg-[url(./images/04.png)] bg-cover bg-center duration-200 hover:scale-125"
                 ></div>
               </div>
               <div class="flex-1 border-b border-[#f2f2f2] px-8 py-5">
-                <h3 class="text-h6 mb-4 font-bold">Sentiment Analysis API</h3>
+                <h3 class="text-h6 mb-4 font-black">Sentiment Analysis API</h3>
                 <p class="text-[#525252]">預防詐騙活動，適用於銀行、金融、電商等。</p>
               </div>
               <div class="flex justify-between border-b border-[#f2f2f2] px-8 py-5">
@@ -500,18 +502,16 @@
                   <img src="./icons/Share.png" alt="icon" />
                 </button>
               </div>
-            </div>
-          </li>
-          <!-- 5 -->
-          <li class="overflow-hidden rounded-2xl border border-[#f2f2f2]">
-            <div class="flex flex-col h-full">
+            </li>
+            <!-- 5 -->
+            <li class="overflow-hidden rounded-2xl border border-[#f2f2f2] flex flex-col h-full">
               <div class="h-[312px] w-full overflow-hidden">
                 <div
                   class="h-full w-full bg-[url(./images/05.png)] bg-cover bg-center duration-200 hover:scale-125"
                 ></div>
               </div>
               <div class="flex-1 border-b border-[#f2f2f2] px-8 py-5">
-                <h3 class="text-h6 mb-4 font-bold">Fraud Detection Platform</h3>
+                <h3 class="text-h6 mb-4 font-black">Fraud Detection Platform</h3>
                 <p class="text-[#525252]">預防詐騙活動，適用於銀行、金融、電商等。</p>
               </div>
               <div class="flex justify-between border-b border-[#f2f2f2] px-8 py-5">
@@ -524,18 +524,16 @@
                   <img src="./icons/Share.png" alt="icon" />
                 </button>
               </div>
-            </div>
-          </li>
-          <!-- 6 -->
-          <li class="overflow-hidden rounded-2xl border border-[#f2f2f2]">
-            <div class="flex flex-col h-full">
+            </li>
+            <!-- 6 -->
+            <li class="overflow-hidden rounded-2xl border border-[#f2f2f2] flex flex-col h-full">
               <div class="h-[312px] w-full overflow-hidden">
                 <div
                   class="h-full w-full bg-[url(./images/06.png)] bg-cover bg-center duration-200 hover:scale-125"
                 ></div>
               </div>
               <div class="flex-1 border-b border-[#f2f2f2] px-8 py-5">
-                <h3 class="text-h6 mb-4 font-bold">Voice Assistant SDK</h3>
+                <h3 class="text-h6 mb-4 font-black">Voice Assistant SDK</h3>
                 <p class="text-[#525252]">
                   通過語音控制應用程式、設備，實現多種功能，例如播放音樂、查詢天氣、發送信息等。
                 </p>
@@ -550,43 +548,46 @@
                   <img src="./icons/Share.png" alt="icon" />
                 </button>
               </div>
-            </div>
-          </li>
-        </ul>
-        <!-- pagination -->
-        <div class="flex justify-end">
-          <ul class="flex gap-x-1">
-            <li>
-              <button class="h-12 min-w-[48px] rounded-2xl bg-black text-white hover:bg-black" type="button">
-                1
-              </button>
-            </li>
-            <li>
-              <button class="h-12 min-w-[48px] rounded-2xl hover:bg-black hover:text-white" type="button">
-                2
-              </button>
-            </li>
-            <li>
-              <button class="h-12 min-w-[48px] rounded-2xl hover:bg-black hover:text-white" type="button">
-                3
-              </button>
-            </li>
-            <li>
-              <button class="h-12 min-w-[48px] rounded-2xl hover:bg-black hover:text-white" type="button">
-                4
-              </button>
-            </li>
-            <li>
-              <button class="h-12 min-w-[48px] rounded-2xl hover:bg-black hover:text-white" type="button">
-                5
-              </button>
-            </li>
-            <li class="ml-1">
-              <button type="button" class="flex h-12 min-w-[48px] items-center justify-center rounded-2xl">
-                <img src="./icons/Keyboard arrow right.png" alt="icon" />
-              </button>
             </li>
           </ul>
+          <!-- pagination -->
+          <div class="flex justify-end">
+            <ul class="flex gap-x-1">
+              <li>
+                <button
+                  class="h-12 min-w-[48px] rounded-2xl bg-black text-white hover:bg-black"
+                  type="button"
+                >
+                  1
+                </button>
+              </li>
+              <li>
+                <button class="h-12 min-w-[48px] rounded-2xl hover:bg-black hover:text-white" type="button">
+                  2
+                </button>
+              </li>
+              <li>
+                <button class="h-12 min-w-[48px] rounded-2xl hover:bg-black hover:text-white" type="button">
+                  3
+                </button>
+              </li>
+              <li>
+                <button class="h-12 min-w-[48px] rounded-2xl hover:bg-black hover:text-white" type="button">
+                  4
+                </button>
+              </li>
+              <li>
+                <button class="h-12 min-w-[48px] rounded-2xl hover:bg-black hover:text-white" type="button">
+                  5
+                </button>
+              </li>
+              <li class="ml-1">
+                <button type="button" class="flex h-12 min-w-[48px] items-center justify-center rounded-2xl">
+                  <img src="./icons/Keyboard arrow right.png" alt="icon" />
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
       <section class="container">
